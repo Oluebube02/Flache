@@ -8,10 +8,10 @@ import {getAuth,GoogleAuthProvider, signInWithPopup} from "firebase/auth"
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyD26Tla-pK6f7UKdzJZhS7VQHgs3YCeW9I",
-  authDomain: "learning-firebase-2b4f6.firebaseapp.com",
-  projectId: "learning-firebase-2b4f6",
-  storageBucket: "learning-firebase-2b4f6.appspot.com",
+  apiKey: "withdrawn",
+  authDomain: "withdrawn",
+  projectId: "withdrawn",
+  storageBucket: "withdrawn",
   messagingSenderId: "46037237286",
   appId: "1:46037237286:web:8c4536df197780117b70e7",
   measurementId: "G-Z2E7K1XHF5"
