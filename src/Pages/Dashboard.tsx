@@ -30,7 +30,6 @@ function Dashboard({isAuth}:Props){
   const [displaying, setDisplaying] = useState<string>('')
   
   useEffect(()=>{
-    console.log('running first')
     if(!isAuth){
       
       navigate('/signup')
