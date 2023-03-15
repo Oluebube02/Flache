@@ -23,7 +23,6 @@ function Login({setIsAuth, isAuth}:Props) {
   const collectiondata = useContext(collectionContext)
   const signInWithGoogle = () =>{
     signInWithPopup(auth, provider).then(() =>{
-      //localStorage.setItem("isAuth", String(true))
       setIsAuth(true)
     }
     )
@@ -37,13 +36,11 @@ function Login({setIsAuth, isAuth}:Props) {
     }else{
       signInWithGoogle()
       onAuthStateChanged(auth, (currentUser)=>{
-        console.log("onauth")
         const school = college.toLocaleLowerCase()
         const user :FlashUser ={public:isPublic, school:school, id:currentUser?.uid, flashcards:[]}
         const checkfirst = async() =>{
           const docRef = doc(collectiondata, auth.currentUser?.uid)
           const docSnap = await getDoc(docRef)
-          console.log("exists", docSnap.exists())
           if (!docSnap.exists()){
             setDoc(doc(collectiondata, auth.currentUser?.uid), user)
             navigate('/dashboard')

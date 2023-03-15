@@ -33,7 +33,6 @@ function UpdateFlash({toBeRemoved, setisupdate}:Props) {
 
   const updateflashcards = async ()=>{
     const userdoc = doc(collectionData, auth.currentUser?.uid)
-    //console.log("user", userdoc.id, id)
     if (newflashset.length>0){
       const newcourse= [...toBeRemoved.course, ...newflashset]
       const replacement : flashsubset = {coursename:toBeRemoved.coursename, course:newcourse}

@@ -7,6 +7,8 @@ import {getAuth,GoogleAuthProvider, signInWithPopup} from "firebase/auth"
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyD26Tla-pK6f7UKdzJZhS7VQHgs3YCeW9I",
   authDomain: "learning-firebase-2b4f6.firebaseapp.com",

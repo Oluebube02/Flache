@@ -21,22 +21,17 @@ function Search({isAuth}:Props) {
       const school :string= docSnap.data()?.school
       setSchool(school)
       const q= query(collectiondata, where('id', '!=', auth.currentUser?.uid), where('public', '==', true), where('school', '==', school))
-      console.log("q", q)
       const querySnapshot = (await getDocs(q)).docs
-      console.log("query", querySnapshot)
       const flasharray:flashsubset[][] = querySnapshot.map((snap)=>snap.data().flashcards)
-      console.log("flasharray",flasharray)
       const flatFlatten = (array:flashsubset[][]):flashsubset[]=> {
         return array.flat(Infinity) as flashsubset[]; 
       }
       const flasharrayspread : flashsubset[] = flatFlatten(flasharray)
     
-      console.log("spread", flasharrayspread)
       setOtherFlash(flasharrayspread)
     }
     isAuth&& getData()
   }, [isAuth, collectiondata])
-  console.log("otherflash", otherflash)
   const updateflashcards = async (flash:flashsubset)=>{
     const userdoc = doc(collectiondata, auth.currentUser?.uid)
     await updateDoc(userdoc, {flashcards:arrayUnion(flash)})

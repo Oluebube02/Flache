@@ -30,7 +30,6 @@ function Dashboard({isAuth}:Props){
   const [displaying, setDisplaying] = useState<string>('')
   
   useEffect(()=>{
-    console.log('running first')
     if(!isAuth){
       
       navigate('/signup')
@@ -38,7 +37,6 @@ function Dashboard({isAuth}:Props){
       const getflash = async ()=>{
         const docRef = doc(collectionData, auth.currentUser?.uid)
         const docSnap = await getDoc(docRef)
-        console.log(docSnap.id)
         setid(docSnap.id)
         setFlashSet(docSnap.data()?.flashcards)
         
@@ -50,15 +48,11 @@ function Dashboard({isAuth}:Props){
     },
   [newlyadded, collectionData, isAuth, navigate])
   
-  console.log("flash", flashset)
-  console.log(id)
 
 
   const updateflashcards = async (flash:flashsubset, add:boolean)=>{
     const userdoc = doc(collectionData, id)
-    console.log("user", userdoc.id, id)
-    add && await updateDoc(userdoc, {flashcards:arrayUnion(flash)})
-    !add && await updateDoc(userdoc, {flashcards:arrayRemove(flash)})
+    add?await updateDoc(userdoc, {flashcards:arrayUnion(flash)}) : await updateDoc(userdoc, {flashcards:arrayRemove(flash)})
     setnewlyadded(!newlyadded)
   }
 

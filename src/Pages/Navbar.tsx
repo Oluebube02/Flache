@@ -21,15 +21,12 @@ function Navbar({isAuth, setIsAuth}:Propauth) {
   const collectiondata = useContext(collectionContext)
   const signInWithGoogle = () =>{
     signInWithPopup(auth, provider).then(() =>{
-      console.log("onauth")
       onAuthStateChanged(auth,(currentUser)=>{
         const checkfirst =  async()=>{
           if(currentUser){
             const docRef = doc(collectiondata, auth.currentUser?.uid)
             const docSnap = await getDoc(docRef)
-            console.log(docSnap.exists())
             if (docSnap.exists()){
-              //localStorage.setItem("isAuth", String(true))
               setIsAuth(true)
               navigate('/dashboard')
             }else{
