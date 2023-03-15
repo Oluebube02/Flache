@@ -52,6 +52,7 @@ function Dashboard({isAuth}:Props){
 
   const updateflashcards = async (flash:flashsubset, add:boolean)=>{
     const userdoc = doc(collectionData, id)
+
     add?await updateDoc(userdoc, {flashcards:arrayUnion(flash)}) : await updateDoc(userdoc, {flashcards:arrayRemove(flash)})
     setnewlyadded(!newlyadded)
   }

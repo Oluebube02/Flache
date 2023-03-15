@@ -46,8 +46,7 @@ function CreateNewFlashset({isopen}:createnewprops) {
 
     }
   }
-  //console.log(newflashset)
-  console.log("rendering")
+  
   const style ={
     marginTop:"15px"
   }

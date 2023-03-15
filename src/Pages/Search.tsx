@@ -32,6 +32,8 @@ function Search({isAuth}:Props) {
     }
     isAuth&& getData()
   }, [isAuth, collectiondata])
+
+
   const updateflashcards = async (flash:flashsubset)=>{
     const userdoc = doc(collectiondata, auth.currentUser?.uid)
     await updateDoc(userdoc, {flashcards:arrayUnion(flash)})
